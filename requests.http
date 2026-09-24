@@ -1,0 +1,43 @@
+### Health
+GET http://localhost:3000/api/health
+
+### Register
+POST http://localhost:3000/api/auth/register
+Content-Type: application/json
+
+{
+  "name": "Engenheiro Teste",
+  "email": "engenheiro@teste.com",
+  "password": "123456"
+}
+
+### Login
+POST http://localhost:3000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "engenheiro@teste.com",
+  "password": "123456"
+}
+
+# Copie o token retornado acima para as requisições abaixo.
+@token = COLE_SEU_TOKEN_AQUI
+
+### Me
+GET http://localhost:3000/api/auth/me
+Authorization: Bearer {{token}}
+
+### List visits
+GET http://localhost:3000/api/visits
+Authorization: Bearer {{token}}
+
+### Create visit
+POST http://localhost:3000/api/visits
+Authorization: Bearer {{token}}
+Content-Type: application/json
+
+{
+  "factoryName": "Fábrica Exemplo",
+  "factoryAddress": "Av. Industrial, 1200",
+  "factoryContact": "Responsável técnico"
+}
